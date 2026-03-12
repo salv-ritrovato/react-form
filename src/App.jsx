@@ -34,10 +34,10 @@ function App() {
   return (
     <>
       <div className="container mx-auto bg-light border p-3 mt-5">
-        <h1>A list of useful articles about dish washing</h1>
+        <h1 className="">A list of useful articles about dish washing</h1>
         <ol className="list-unstyled">
           {toRead.map((article, index) => (
-            <li key={index} className="mb-3 border p-3 text-dark bg-white">
+            <li key={index} className="mb-3 border p-3 text-dark bg-white d-flex justify-content-between">
               {article}
               <button onClick={() => removeArticle(index)} className="btn btn-danger btn-sm mx-4">Remove</button>
             </li>
