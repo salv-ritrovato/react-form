@@ -21,13 +21,22 @@ function App() {
     setNewArticle('') // Resets the input field to the empty string
   }
 
+  function removeArticle(i) {
+    const newList = toRead.filter((item, newIndex) => newIndex != i)
+    setToRead(newList)
+  }
+
   return (
     <>
       <div className="formcontainer mx-auto">
         <h1>A list of useful articles about dish washing</h1>
         <ol className="list-unstyled">
-          {toRead.map((article) => (
-            <li key={article}>{article}</li>
+          {toRead.map((article, index) => (
+            <li key={index}>
+              {article}
+              <button onClick={() => removeArticle(index)} className="btn btn-dark btn-sm mx-4">Remove</button>
+            </li>
+
           ))}
         </ol>
 
@@ -35,7 +44,7 @@ function App() {
           <input type="text"
             value={newArticle}
             onChange={e => setNewArticle(e.target.value)} />
-          <button>Add article to read!</button>
+          <button className="btn btn-primary">Add article to read!</button>
         </form>
       </div>
     </>
