@@ -17,8 +17,13 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault() // Prevents page reload
-    setToRead([newArticle, ...toRead]) // Updates state with new article first then the already existing articles
-    setNewArticle('') // Resets the input field to the empty string
+
+    if (newArticle.length < 5) {
+      alert('Invalid input!!')
+    } else {
+      setToRead([newArticle, ...toRead]) // Updates state with new article first then the already existing articles
+      setNewArticle('') // Resets the input field to the empty string
+    }
   }
 
   function removeArticle(i) {
