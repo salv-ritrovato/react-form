@@ -33,13 +33,13 @@ function App() {
 
   return (
     <>
-      <div className="formcontainer mx-auto">
+      <div className="container mx-auto bg-light border p-3 mt-5">
         <h1>A list of useful articles about dish washing</h1>
         <ol className="list-unstyled">
           {toRead.map((article, index) => (
-            <li key={index}>
+            <li key={index} className="mb-3 border p-3 text-dark bg-white">
               {article}
-              <button onClick={() => removeArticle(index)} className="btn btn-dark btn-sm mx-4">Remove</button>
+              <button onClick={() => removeArticle(index)} className="btn btn-danger btn-sm mx-4">Remove</button>
             </li>
 
           ))}
@@ -49,7 +49,7 @@ function App() {
           <input type="text"
             value={newArticle}
             onChange={e => setNewArticle(e.target.value)} />
-          <button className="btn btn-primary">Add article to read!</button>
+          <button className="btn btn-primary mx-3 p-2">Add article to read!</button>
         </form>
       </div>
     </>
